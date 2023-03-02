@@ -43,7 +43,7 @@
                 echo "<td>". $row['staff_username'] ."</td>";
                 echo "<td>". $row['staff_password'] ."</td>";
                 echo "<td><a href=\"edit_staff.php?staff_id=$row[staff_id]\"</a>Edit</td>";
-                /*echo "<td><a href=\"delete_food.php?food_items=$row[food_items]\" onClick=\"return confirm('Are You Sure ?')\"</a>Delete</td>";*/
+                echo "<td><a href=\"delete_staff.php?staff_id=$row[staff_id]\" onClick=\"return confirm('Are You Sure ?')\"</a>Delete</td>";
                 echo "</tr>";
             }
         ?>
