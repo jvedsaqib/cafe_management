@@ -1,0 +1,8 @@
+db : food
+table : 
+Food_Details (food_items, price_per_item)
+inter (food_items, qty)
+admin_details (admin_username, admin_password)
+cust_details (Payment_ID, c_name, phone, email, total, payment_date, cashier)
+staff_details (staff_id, staff_name, staff_username, staff_password)
+notice (notice_id, notice_description, auth)
