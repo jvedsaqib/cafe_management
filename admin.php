@@ -96,7 +96,7 @@
                         $sql = "SELECT sum(total) as Total FROM `cust_details` WHERE date(payment_date) = CURRENT_DATE;";
                         $res = mysqli_query($conn, $sql);
                         $row = mysqli_fetch_array($res);
-                        $total = $row['Total'];
+                        $total = number_format((float)$row['Total'], 2, '.', '');
                     ?>
                     <p id="total">
                         <?php echo "Rs ".$total ?>
@@ -109,7 +109,7 @@
                             $sql = "SELECT sum(total) as Total FROM `cust_details` WHERE date(payment_date) = CURRENT_DATE-1;";
                             $res = mysqli_query($conn, $sql);
                             $row = mysqli_fetch_array($res);
-                            $total = $row['Total'];
+                            $total = number_format((float)$row['Total'], 2, '.', '');
                         ?>
                         <p id="total">
                             <?php echo "Rs ".$total ?>

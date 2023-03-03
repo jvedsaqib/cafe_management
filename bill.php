@@ -67,6 +67,27 @@
 
 		echo "<h1><u>Your Bill</u></h1>";
 
+		$qry = "SELECT * FROM inter";
+		$res = mysqli_query($conn, $qry);
+
+		echo "<table>";
+		echo "<th>Item</th>
+			  <th>Qty</th>";
+		echo "<th>Price</th>";
+		while($row = mysqli_fetch_assoc($res)){
+			$inner_qty = (float)$row['qty'];
+			$inner_qry = "select price_per_item from food_details where food_items =  '". $row['food_items'] ."';";
+			$item_price = mysqli_fetch_array(mysqli_query($conn, $inner_qry));
+			echo "<tr>";
+			echo "<td>". $row['food_items'] ."</td>";
+			echo "<td>". $row['qty'] ."</td>";
+			echo "<td>" . $item_price['price_per_item'] * $inner_qty ."</td>";
+			echo "</tr>";
+		}
+		echo "</table>";
+
+		echo "<br><br>";
+
 		echo "<table>";
 		echo "<th>Customer Name</th>
 			  <th>Total Price</th>";
@@ -93,9 +114,9 @@
 		mysqli_query($conn, $sql);
 
 		if ($delivery_charge) {
-			echo "<b><p>Including Delivery charges</p><b>";
+			echo "<b><p>Rs 50 added if the total amount is less than 1000</p><b>";
 		} else if ($coupon) {
-			echo "<b>Coupon Added !<b>";
+			echo "<b>Coupon Added if the total amount is greater than 5000<b>";
 		}
 
 
@@ -129,7 +150,7 @@
 	  $mail->Host       = 'smtp.gmail.com;';                    
 	  $mail->SMTPAuth   = true;                             
 	  $mail->Username   = 'jvedsaqib1@gmail.com';                 
-	  $mail->Password   = 'jdewbdfbqccwofrw';                        
+	  $mail->Password   = '';                        
 	  $mail->SMTPSecure = 'tls';                              
 	  $mail->Port       = 587;  
 	
@@ -139,6 +160,13 @@
 		                        
 	  $mail->isHTML(true);
 	  $mail->Subject = 'Your order is placed!';
+	  $msg = "Thank you for your order !
+				Here is our invoice details
+					Customer Name :: " . $_SESSION['name'] . "
+					Order Total :: " . $net_price . "
+					Order Time :: " . date('d-m-y') . "
+					Cashier :: " . $_SESSION['staff_name'] . "
+  				Visit us soon !";
 	  $mail->Body    = "
 							<h1>Thank you for visiting us!</h1>
 							<p>Below is your order receipt</p>
@@ -168,13 +196,7 @@
 						";
 
 
-		$msg = "Thank you for your order !
-				Here is our invoice details
-					Customer Name :: " . $_SESSION['name'] . "
-					Order Total :: " . $net_price . "
-					Order Time :: " . date('d-m-y') . "
-					Cashier :: " . $_SESSION['staff_name'] . "
-  				Visit us soon !";
+		
 	  
 	  $mail->send();
   }
