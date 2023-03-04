@@ -43,4 +43,4 @@
 
 - # Food Menu List
 
-![img](Cafe_Management/ADMIN_DASHBOARD.jpg)
+![img](Cafe_Management/FOOD_MENU_LIST.jpg)
