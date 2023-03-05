@@ -115,12 +115,14 @@
                             <?php echo "Rs ".$total ?>
                         </p>
                 </div>
-                <div class="box-3">
-                    <p id="window-heading">Box 3</p>
+                
+                <!--    <div class="box-3">
+                    <p id="window-heading">Last Order</p>
+                    <p id="total"></p>
                 </div>
                 <div class="box-4">
                     <p id="window-heading">Box 4</p>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
