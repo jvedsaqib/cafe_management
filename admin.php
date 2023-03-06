@@ -116,11 +116,21 @@
                         </p>
                 </div>
                 
-                <!--    <div class="box-3">
+                <div class="box-3">
+                    
                     <p id="window-heading">Last Order</p>
-                    <p id="total"></p>
+                    <?php
+                            include('connection.php');
+                            $sql = "SELECT * FROM cust_details ORDER BY Payment_ID DESC LIMIT 1;";
+                            $res = mysqli_query($conn, $sql);
+                            $row = mysqli_fetch_array($res);
+                            $price = number_format((float)$row['total'], 2, '.', '');
+                        ?>
+                    <p id="total">
+                        <?php echo $price; ?>
+                    </p>
                 </div>
-                <div class="box-4">
+                <!--<div class="box-4">
                     <p id="window-heading">Box 4</p>
                 </div>-->
             </div>
