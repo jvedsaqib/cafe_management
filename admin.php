@@ -127,7 +127,7 @@
                             $price = number_format((float)$row['total'], 2, '.', '');
                         ?>
                     <p id="total">
-                        <?php echo $price; ?>
+                        <?php echo "Rs " . $price; ?>
                     </p>
                 </div>
                 <!--<div class="box-4">
