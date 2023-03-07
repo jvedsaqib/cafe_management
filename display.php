@@ -26,6 +26,8 @@
     </style>
 </head>
 <body>
+    <a href="admin.php">Dashboard</a>
+    <br><br><br>
     <table>
         <th>Payment_ID</th>
         <th>Customer Name</th>
@@ -51,6 +53,6 @@
         ?>
     </table>
     <br><br><br>
-    <a href="admin.php">Dashboard</a>
+    
 </body>
 </html>
