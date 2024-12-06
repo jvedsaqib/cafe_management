@@ -1,5 +1,4 @@
 # CAFE MANAGEMENT SYSTEM using HTML, CSS, PHP and MySQL
-
 ## I made this project that can manage a small cafe or a restaurant.
 
 ### @jvedsaqib
